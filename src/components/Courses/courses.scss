@@ -5,7 +5,6 @@ $marine: #81e1da;
 .courses-wrap {
   box-sizing: border-box;
   margin: 0 auto;
-  color: $white;
 
   .courses-container {
     display: grid;
@@ -16,7 +15,7 @@ $marine: #81e1da;
       cursor: pointer;
       padding: 20px 40px;
       text-decoration: none;
-
+  
       &:hover {
         background-color: lighten($indigo, 3%);
         color: $marine;
