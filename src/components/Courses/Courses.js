@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 import './courses.scss';
 
@@ -23,9 +24,11 @@ const Courses = () => {
             return (
             <div key={course.slug} className="course">
               <div className="about">
-                <h2 className="title">{course.title}</h2>
-                <p className="author">by {course.author}</p>
-                <p className="nextStart">Next start – {course.next_start_formatted}</p>
+                <Link to={`/course/${course.slug}`}>
+                  <h2 className="title">{course.title}</h2>
+                  <p className="author">by {course.author}</p>
+                  <p className="nextStart">Next start – {course.next_start_formatted}</p>
+                </Link>
               </div>
             </div>
           )})
