@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 
 import studentImg from '../../images/Abhi-1279-min.png';
 
@@ -8,16 +9,18 @@ const Details = () => {
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  let { slug } = useParams();
+
   useEffect(() => {
     async function getDetails() {
       setIsLoading(true);
-      const courseDetail = await fetch(`https://private-e05942-courses22.apiary-mock.com/courses/full-stack-immersion`);
+      const courseDetail = await fetch(`https://private-e05942-courses22.apiary-mock.com/courses/${slug}`);
       const data = await courseDetail.json();
       setDetails([data]);
       setIsLoading(false);
     }
     getDetails();
-  }, []);
+  }, [slug]);
 
   if (isLoading) { 
     return (
