@@ -1,8 +1,21 @@
+import React, { useEffect } from 'react';
+
 import studentImg from '../../images/Abhi-1279-min.png';
 
 import './details.scss';
 
 const Details = () => {
+
+  useEffect(() => {
+    async function getDetails() {
+      const courseDetail = await fetch(`https://private-e05942-courses22.apiary-mock.com/courses/full-stack-immersion`);
+      const data = await courseDetail.json();
+      console.log(data);
+    }
+    getDetails();
+  }, []);
+
+
   return (
     <div className="details">
       <div className="description">
