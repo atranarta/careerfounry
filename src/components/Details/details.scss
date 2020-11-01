@@ -1,0 +1,39 @@
+$indigo: #223c50;
+$white: #FFFFFF;
+$marine: #81e1da;
+
+.details {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 50px;
+
+  img.student {
+    display: block;
+  }
+
+  .start-dates {
+    font-size: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 20px;
+
+    ul {
+      font-size: 24px;
+      text-align: left;
+    }
+  }
+
+  .price-container {
+    font-size: 30px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 20px;
+
+    .price {
+      font-size: 24px;
+      text-align: left;
+    }
+  }
+}
