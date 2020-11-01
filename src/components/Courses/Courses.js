@@ -15,21 +15,20 @@ const Courses = () => {
   }, []);
 
   return (
-    <div className="courses">
+    <div className="courses-wrap">
       <h1>Available courses:</h1>
-      <div>
+      <div className="courses-container">
         {
           courses.map(course => {
             return (
-              <div key={course.slug} className="course">
-                <div className="about">
-                  <h2 className="title">{course.title}</h2>
-                  <p className="author">by {course.author}</p>
-                  <p className="nextStart">Next start – {course.next_start_formatted}</p>
-                </div>
+            <div key={course.slug} className="course">
+              <div className="about">
+                <h2 className="title">{course.title}</h2>
+                <p className="author">by {course.author}</p>
+                <p className="nextStart">Next start – {course.next_start_formatted}</p>
               </div>
-            )
-          })
+            </div>
+          )})
         }
       </div>
     </div>

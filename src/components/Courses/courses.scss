@@ -2,20 +2,26 @@ $indigo: #223c50;
 $white: #FFFFFF;
 $marine: #81e1da;
 
-.courses {
+.courses-wrap {
   box-sizing: border-box;
   margin: 0 auto;
   color: $white;
-  
-  .course {
-    cursor: pointer;
-    padding: 20px 40px;
-    text-decoration: none;
 
-    &:hover {
-      background-color: lighten($indigo, 3%);
-      color: $marine;
-      transition: .4s;
+  .courses-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px 50px;
+  
+    .course {
+      cursor: pointer;
+      padding: 20px 40px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: lighten($indigo, 3%);
+        color: $marine;
+        transition: .4s;
+      }
     }
   }
 }
