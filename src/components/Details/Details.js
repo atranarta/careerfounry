@@ -6,11 +6,10 @@ import studentImg from '../../images/Abhi-1279-min.png';
 import { getUserPosition } from '../getUserPosition';
 
 import './details.scss';
-
 const Details = () => {
-  getUserPosition();
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currency, setCurrency] = useState('EUR');
 
   let { slug } = useParams();
 
@@ -23,6 +22,11 @@ const Details = () => {
       setIsLoading(false);
     }
     getDetails();
+
+    getUserPosition().then((result) => {
+      setCurrency(result === 'EU' ? 'EUR' : 'USD');
+    });
+
   }, [slug]);
 
   if (isLoading) { 
@@ -31,17 +35,26 @@ const Details = () => {
     );
   }
 
+  const showPrice = (currency) => {
+    const price = Object.values(details[0].prices).filter((item) => item.currency === currency.toLowerCase())[0];
+  
+    return (
+      <p className="price">{price.amount} {currency}</p>
+    )
+  };
+
+
   return (
     <div className="details">
       <div className="description">
         <h1>{details[0].description}</h1>
         <div className="start-dates">Next dates:
           <ul>
-            {details[0].start_dates.map((date) => <li key={date}>{date}</li>)}
+            {details[0].start_dates.map((date) =><li key={date}>{date}</li>)}
           </ul>
         </div>
         <div className="price-container">Price:
-          <p className="price">1800 eur</p>
+          {showPrice(currency)}
         </div>
       </div>
       <img className="student" alt="student" src={studentImg} />
